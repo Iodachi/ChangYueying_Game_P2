@@ -20,6 +20,7 @@ public class Movement : MonoBehaviour {
 
 	void Update() {
 		isTouchingGround = Physics2D.OverlapCircle (groundCheckPoint.position, groundCheckRadius, groundLayer);
+		//Debug.Log (isTouchingGround);
 		movement = Input.GetAxis ("Horizontal");
 		if (movement != 0f) {
 			rigidBody.velocity = new Vector2 (movement * speed, rigidBody.velocity.y);
