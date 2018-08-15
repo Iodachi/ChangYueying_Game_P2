@@ -13,6 +13,10 @@ public class Movement : MonoBehaviour {
 	public LayerMask groundLayer;
 	private bool isTouchingGround;
 
+	public int numLeft = 3;
+	public Transform Player;
+	public Transform launchpad;
+
 	// Use this for initialization
 	void Start () {
 		rigidBody = GetComponent<Rigidbody2D> ();
@@ -20,7 +24,6 @@ public class Movement : MonoBehaviour {
 
 	void Update() {
 		isTouchingGround = Physics2D.OverlapCircle (groundCheckPoint.position, groundCheckRadius, groundLayer);
-		//Debug.Log (isTouchingGround);
 		movement = Input.GetAxis ("Horizontal");
 		if (movement != 0f) {
 			rigidBody.velocity = new Vector2 (movement * speed, rigidBody.velocity.y);
@@ -28,6 +31,12 @@ public class Movement : MonoBehaviour {
 		if(Input.GetButtonDown ("Jump") && isTouchingGround){
 			rigidBody.velocity = new Vector2 (rigidBody.velocity.x, jumpSpeed);
 		}
-			
+
+		Vector3 position = new Vector3 (Player.position.x - 1f, Player.position.y + 0.1f);
+		Quaternion rotation = Quaternion.Euler(0, 0, 0);
+		if (Input.GetKeyDown (KeyCode.Q) && isTouchingGround && numLeft > 0) {
+			Instantiate(launchpad, position, rotation);
+			numLeft--;
+		}
 	}
 }
