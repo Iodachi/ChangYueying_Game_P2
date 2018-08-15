@@ -5,6 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour {
 	public float speed = 5f;
 	public float jumpSpeed = 5f;
+	public float launchSpeed = 10f;
 	private float movement = 0f;
 	private Rigidbody2D rigidBody;
 
@@ -24,19 +25,32 @@ public class Movement : MonoBehaviour {
 
 	void Update() {
 		isTouchingGround = Physics2D.OverlapCircle (groundCheckPoint.position, groundCheckRadius, groundLayer);
+
+		//movement
 		movement = Input.GetAxis ("Horizontal");
 		if (movement != 0f) {
 			rigidBody.velocity = new Vector2 (movement * speed, rigidBody.velocity.y);
 		}
-		if(Input.GetButtonDown ("Jump") && isTouchingGround){
+
+		//jump
+		if (Input.GetButtonDown ("Jump") && isTouchingGround) {
 			rigidBody.velocity = new Vector2 (rigidBody.velocity.x, jumpSpeed);
 		}
 
+		//generating launchpad
 		Vector3 position = new Vector3 (Player.position.x - 1f, Player.position.y + 0.1f);
-		Quaternion rotation = Quaternion.Euler(0, 0, 0);
+		Quaternion rotation = Quaternion.Euler (0, 0, 0);
 		if (Input.GetKeyDown (KeyCode.Q) && isTouchingGround && numLeft > 0) {
-			Instantiate(launchpad, position, rotation);
+			Instantiate (launchpad, position, rotation);
 			numLeft--;
+		}
+
+	}
+
+	//launch
+	void OnCollisionEnter2D(Collision2D other){
+		if (other.gameObject.tag == "LaunchPad") {
+			rigidBody.velocity = new Vector2 (rigidBody.velocity.x, launchSpeed);
 		}
 	}
 }

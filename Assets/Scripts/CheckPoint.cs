@@ -15,8 +15,8 @@ public class CheckPoint : MonoBehaviour {
 		
 	}
 
-	void onTriggerEnter2D(Collider2D other){
-		if (other.tag == "Player") {
+	void onCollisonEnter2D(Collider2D other){
+		if (other.gameObject.tag == "Player") {
 			isIn = true;
 			Debug.Log ("in");
 		}
