@@ -15,10 +15,11 @@ public class CheckPoint : MonoBehaviour {
 		
 	}
 
-	void onCollisonEnter2D(Collider2D other){
+	void OnCollisionEnter2D(Collision2D other){
 		if (other.gameObject.tag == "Player") {
 			isIn = true;
 			Debug.Log ("in");
 		}
+		//Debug.Log ("in");
 	}
 }
