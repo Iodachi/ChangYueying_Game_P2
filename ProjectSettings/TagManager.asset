@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - LaunchPad
   layers:
   - Default
   - TransparentFX
@@ -43,6 +44,9 @@ TagManager:
     locked: 0
   - name: background
     uniqueID: 2668210885
+    locked: 0
+  - name: hidden layer
+    uniqueID: 4277132217
     locked: 0
   - name: foreground
     uniqueID: 27427301
