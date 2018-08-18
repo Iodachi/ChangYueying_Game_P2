@@ -38,7 +38,7 @@ public class Movement : MonoBehaviour {
 		}
 
 		//generating launchpad
-		Vector3 position = new Vector3 (Player.position.x - 1.8f, Player.position.y + 0.1f);
+		Vector3 position = new Vector3 (Player.position.x - 1.65f, Player.position.y + 0.2f);
 		Quaternion rotation = Quaternion.Euler (0, 0, 0);
 		if (Input.GetKeyDown (KeyCode.Q) && isTouchingGround && numLeft > 0) {
 			Instantiate (launchpad, position, rotation);
