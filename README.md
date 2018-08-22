@@ -12,7 +12,8 @@ The ultimate goal is to put the ball into the container, which is too high for p
 As we mentioned the key mechanics is the interaction between player and launchpad, in the future there could be multiple levels with fewer and fewer planks but more different items to be used to increase the difficulty and depth of the game. Another approach is to have different ways of playing and interactions, such as the other version of the game as different levels, but keep the concept of jumping launchpad constantly flow in the game.
 
 Installation & setup
-Simple download the repository and import into unity to run. 
+
+Simply download the repository and import into unity to run. 
 
 Challenges
 This is the first time I am using unity and I found it confusing to start with, but after a few hours of play around I found it to be really fun. I had some problems dealing with the collision and bouncing detections, and adjusting and balancing the relationship with gravity scale, mass, and jump force.
