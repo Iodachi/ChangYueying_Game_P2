@@ -16,6 +16,7 @@ Installation & setup
 Simply download the repository and import into unity to run. 
 
 Challenges
+
 This is the first time I am using unity and I found it confusing to start with, but after a few hours of play around I found it to be really fun. I had some problems dealing with the collision and bouncing detections, and adjusting and balancing the relationship with gravity scale, mass, and jump force.
 
 Please see the other version of my prototype here: https://github.com/Iodachi/ChangYueying_Game_P2_version2 
